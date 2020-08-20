@@ -1,6 +1,7 @@
 Install:
 	windows : pip install -r requirements.txt
-	linux   : sudo apt-get install python3 && sudo apt-get install python3-pip && pip3 install -r requirements.txt
+	
+    linux   : sudo apt-get install python3 && sudo apt-get install python3-pip && pip3 install -r requirements.txt
 Usage:
 	windows : python Voomer.py
 	linux   : python3 Voomer.py
