@@ -16,3 +16,5 @@ linux   :
 	python3 Voomer.py
 
 If this Query (realm="GoAhead", domain=":81" country:COUNTRY) no required you can change other Search Query on line 21
+
+THANK YOU FOR STARS, I THOUGHT NO ONE KNEW ME
