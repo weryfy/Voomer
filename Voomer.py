@@ -26,10 +26,10 @@ try:
     api = shodan.Shodan(SHODAN_API_KEY)
     #SearchQuery
     SearchQuery = input("Enter Query> ")
+    print("Found results: %s\n\n" % api.search(SearchQuery)['total'])
     #SearchQuery
     filename = input("Enter filename for save: ")
     handle = open(filename, "w")
-    print("Found results: %s\n\n" % api.search(SearchQuery)['total'])
     for ed in range(math.ceil(api.search(SearchQuery)['total']/100)):
         for service in api.search(SearchQuery,page=ed)['matches']:
             handle.write('%s:%s\n' % (service['ip_str'], service['port']))
