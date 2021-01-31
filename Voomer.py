@@ -24,15 +24,15 @@ print("SHODAN API KEY => %s" % SHODAN_API_KEY)
 
 try:
     api = shodan.Shodan(SHODAN_API_KEY)
-    country = input("Enter country Example:RU > ")
     #SearchQuery
-    SearchQuery = 'realm="GoAhead", domain=":81" country:"%s"'%country
+    SearchQuery = input("Enter Query> ")
     #SearchQuery
-    handle = open("reults%s.txt"%country, "w")
+    filename = input("Enter filename for save: ")
+    handle = open(filename, "w")
+    print("Found results: %s\n\n" % api.search(SearchQuery)['total'])
     for ed in range(math.ceil(api.search(SearchQuery)['total']/100)):
         for service in api.search(SearchQuery,page=ed)['matches']:
-            handle.write('%s:81   ' % service['ip_str'])
-            handle.write('%s:81/system.ini?loginuse&loginpas\n' % service['ip_str'])
+            handle.write('%s:%s\n' % (service['ip_str'], service['port']))
     handle.close()
 except Exception as e:
     print ('Error: %s' % e)
